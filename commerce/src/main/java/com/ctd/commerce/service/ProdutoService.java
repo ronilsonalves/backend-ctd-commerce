@@ -17,15 +17,15 @@ public class ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
-    List<Produto> listarTodosProdutos(){
+    public List<Produto> listarTodosProdutos(){
        return produtoRepository.findAll();
     }
 
-    Optional<Produto> buscarPorId(Integer id){
+    public Optional<Produto> buscarPorId(Integer id){
         return produtoRepository.findById(id);
     }
 
-    List<Produto> findAllByCategoria(Categoria categoria){
+    public List<Produto> findAllByCategoria(Categoria categoria){
         return produtoRepository.findAllByCategoria(categoria);
     }
 }
