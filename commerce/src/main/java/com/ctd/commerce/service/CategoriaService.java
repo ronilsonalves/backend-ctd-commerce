@@ -1,7 +1,10 @@
 package com.ctd.commerce.service;
 
+import com.ctd.commerce.model.Categoria;
 import com.ctd.commerce.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 public class CategoriaService {
 
@@ -12,5 +15,7 @@ public class CategoriaService {
         this.categoriaRepository = categoriaRepository;
     }
 
-
+    private List<Categoria> listarCategorias(){
+        return categoriaRepository.findAll();
+    }
 }
