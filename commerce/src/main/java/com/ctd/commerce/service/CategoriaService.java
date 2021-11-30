@@ -3,9 +3,11 @@ package com.ctd.commerce.service;
 import com.ctd.commerce.model.Categoria;
 import com.ctd.commerce.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CategoriaService {
 
     private CategoriaRepository categoriaRepository;

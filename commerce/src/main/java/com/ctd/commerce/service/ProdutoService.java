@@ -4,10 +4,12 @@ import com.ctd.commerce.model.Categoria;
 import com.ctd.commerce.model.Produto;
 import com.ctd.commerce.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProdutoService {
 
     private ProdutoRepository produtoRepository;
