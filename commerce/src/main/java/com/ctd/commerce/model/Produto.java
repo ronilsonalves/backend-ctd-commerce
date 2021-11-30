@@ -31,7 +31,6 @@ public class Produto {
 
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
     public Integer getId() {
