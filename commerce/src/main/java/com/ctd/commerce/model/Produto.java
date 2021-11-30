@@ -30,8 +30,12 @@ public class Produto {
     private String image;
 
 
+<<<<<<< HEAD
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_id")
+=======
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+>>>>>>> a9ca61d76086e247e9fed9e03a100b9de1ccd123
     private Categoria categoria;
 
     public Integer getId() {
