@@ -1,4 +1,5 @@
 package com.ctd.commerce.controller;
+import com.ctd.commerce.model.Categoria;
 import com.ctd.commerce.model.Produto;
 import com.ctd.commerce.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,10 @@ public class ProdutoController {
     @GetMapping("/{id}")
     private ResponseEntity<Optional<Produto>> buscarPorId(@PathVariable Integer id){
         return ResponseEntity.ok(produtoService.buscarPorId(id));
+    }
+
+    @GetMapping("/categoria/{categoria}")
+    private ResponseEntity<List<Produto>> produtosDeUmaCategoria(Categoria categoria){
+        return ResponseEntity.ok(produtoService.findAllByCategoria(categoria));
     }
 }
