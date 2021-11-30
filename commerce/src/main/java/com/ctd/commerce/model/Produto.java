@@ -7,11 +7,11 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_produtos")
-public class Produtos {
+public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotNull
     @Size(min = 4, max = 50)
@@ -32,13 +32,13 @@ public class Produtos {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "categoria_id")
-    private Categorias categorias;
+    private Categoria categoria;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -74,11 +74,11 @@ public class Produtos {
         this.image = image;
     }
 
-    public Categorias getCategorias() {
-        return categorias;
+    public Categoria getCategorias() {
+        return categoria;
     }
 
-    public void setCategorias(Categorias categorias) {
-        this.categorias = categorias;
+    public void setCategorias(Categoria categoria) {
+        this.categoria = categoria;
     }
 }

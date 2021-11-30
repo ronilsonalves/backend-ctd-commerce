@@ -6,21 +6,21 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_categorias")
-public class Categorias {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @NotNull
     @Size(min = 4, max = 50)
     private String nome;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
