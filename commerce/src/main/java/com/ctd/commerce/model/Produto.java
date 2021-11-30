@@ -30,7 +30,7 @@ public class Produto {
     private String image;
 
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
@@ -74,11 +74,11 @@ public class Produto {
         this.image = image;
     }
 
-    public Categoria getCategorias() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategorias(Categoria categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 }

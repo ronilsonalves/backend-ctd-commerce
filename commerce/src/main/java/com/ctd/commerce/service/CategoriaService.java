@@ -21,4 +21,7 @@ public class CategoriaService {
         return categoriaRepository.findAll();
     }
 
+    public Categoria adicionarCategoria(Categoria categoria){
+        return categoriaRepository.save(categoria);
+    }
 }

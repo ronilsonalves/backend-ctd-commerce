@@ -1,8 +1,7 @@
 package com.ctd.commerce.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.persistence.*;import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_categorias")
@@ -11,6 +10,9 @@ public class Categoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Produto> produto;
 
 
     @Size(min = 4, max = 50)
@@ -30,5 +32,12 @@ public class Categoria {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+    public List<Produto> getProduto() {
+        return produto;
+    }
+
+    public void setProduto(List<Produto> produto) {
+        this.produto = produto;
     }
 }
