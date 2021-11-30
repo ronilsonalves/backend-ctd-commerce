@@ -29,8 +29,8 @@ public class Produto {
     @Size(min = 10, max = 255)
     private String image;
 
-    @NotNull
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 

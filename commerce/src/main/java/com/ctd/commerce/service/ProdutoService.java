@@ -30,4 +30,8 @@ public class ProdutoService {
     public List<Produto> findAllByCategoria(Categoria categoria){
         return produtoRepository.findAllByCategoria(categoria);
     }
+
+    public Produto cadastrarProduto(Produto produto){
+         return produtoRepository.save(produto);
+    }
 }
