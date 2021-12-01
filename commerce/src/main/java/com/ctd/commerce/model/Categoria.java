@@ -12,7 +12,6 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
     @Size(min = 4, max = 50)
     private String nome;
 

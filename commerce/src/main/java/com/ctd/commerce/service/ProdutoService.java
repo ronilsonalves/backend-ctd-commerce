@@ -6,6 +6,7 @@ import com.ctd.commerce.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,12 +24,23 @@ public class ProdutoService {
        return produtoRepository.findAll();
     }
 
-    public Optional<Produto> buscarPorId(Integer id){
-        return produtoRepository.findById(id);
+    public List<Produto> listarProdutosPorCategoria(String nomeCategoria){
+
+        List<Produto> produtos = produtoRepository.findAll();
+
+        List<Produto> produtosResponse = new ArrayList<>();
+
+        for (Produto produto : produtos) {
+            if (produto.getCategorias().getNome().equals(nomeCategoria)) {
+                produtosResponse.add(produto);
+            }
+        }
+
+        return produtosResponse;
     }
 
-    public List<Produto> findAllByCategoria(Categoria categoria){
-        return produtoRepository.findAllByCategoria(categoria);
+    public Optional<Produto> buscarPorId(Integer id){
+        return produtoRepository.findById(id);
     }
 
     public Produto cadastrarProduto(Produto produto){
