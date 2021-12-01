@@ -17,7 +17,7 @@ public class Categoria {
     private String nome;
 
     @OneToMany(mappedBy = "categoria")
-    @JsonIgnoreProperties("produto")
+    @JsonIgnoreProperties("categoria")
     private List<Produto> produtos;
 
     public Integer getId() {

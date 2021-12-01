@@ -1,5 +1,7 @@
 package com.ctd.commerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
@@ -31,6 +33,7 @@ public class Produto {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "categoria_id")
+    @JsonIgnoreProperties("produtos")
     private Categoria categoria;
 
     public Integer getId() {
