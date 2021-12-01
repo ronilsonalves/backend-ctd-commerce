@@ -10,6 +10,5 @@ import java.util.List;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto,Integer> {
 
-    @Autowired
     List<Produto> findAllByCategoria(Categoria categoria);
 }
