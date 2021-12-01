@@ -1,6 +1,7 @@
 package com.ctd.commerce.controller;
 import com.ctd.commerce.model.Categoria;
 import com.ctd.commerce.model.Produto;
+import com.ctd.commerce.service.CategoriaService;
 import com.ctd.commerce.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +17,12 @@ public class ProdutoController {
 
     private ProdutoService produtoService;
 
+    private CategoriaService categoriaService;
+
     @Autowired
-    public ProdutoController(ProdutoService produtoService) {
+    public ProdutoController(ProdutoService produtoService, CategoriaService categoriaService) {
         this.produtoService = produtoService;
+        this.categoriaService = categoriaService;
     }
 
     @PostMapping
@@ -36,8 +40,18 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoService.buscarPorId(id));
     }
 
-    @GetMapping("/categoria/{categoria}")
-    private ResponseEntity<List<Produto>> produtosDeUmaCategoria(@PathVariable Categoria categoria){
-        return ResponseEntity.ok(produtoService.findAllByCategoria(categoria));
+    @PostMapping("/categoria")
+    private ResponseEntity<Categoria> cadastrarCategoria(@RequestBody Categoria categoria){
+        return ResponseEntity.status(HttpStatus.CREATED).body(categoriaService.adicionarCategoria(categoria));
+    }
+
+    @GetMapping("/categoria/{nome}")
+    private ResponseEntity<List<Categoria>> produtosDeUmaCategoria(@PathVariable String nome){
+        return ResponseEntity.ok(categoriaService.findByNome(nome));
+    }
+
+    @GetMapping("/categoria")
+    private ResponseEntity<List<Categoria>> listarTodasCategorias(){
+        return ResponseEntity.ok(categoriaService.listarCategorias());
     }
 }

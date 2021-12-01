@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto,Integer> {
-
-    List<Produto> findAllByCategoria(Categoria categoria);
 }

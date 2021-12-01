@@ -24,4 +24,8 @@ public class CategoriaService {
     public Categoria adicionarCategoria(Categoria categoria){
         return categoriaRepository.save(categoria);
     }
+
+    public List<Categoria> findByNome(String nome){
+        return categoriaRepository.findByNome(nome);
+    }
 }
