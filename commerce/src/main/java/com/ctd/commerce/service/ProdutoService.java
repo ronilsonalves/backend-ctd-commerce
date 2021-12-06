@@ -1,9 +1,10 @@
 package com.ctd.commerce.service;
 
-import com.ctd.commerce.model.Categoria;
 import com.ctd.commerce.model.Produto;
 import com.ctd.commerce.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +26,11 @@ public class ProdutoService {
 
     public Optional<Produto> buscarPorId(Integer id){
         return produtoRepository.findById(id);
+    }
+
+    //Listar produtos por título
+    public List<Produto> listarPorTitulo(String titulo) {
+        return produtoRepository.findByTitulo(titulo);
     }
 
     public Produto cadastrarProduto(Produto produto){

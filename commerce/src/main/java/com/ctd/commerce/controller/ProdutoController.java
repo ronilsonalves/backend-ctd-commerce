@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/produto")
 public class ProdutoController {
@@ -35,9 +36,15 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoService.listarTodosProdutos());
     }
 
+
     @GetMapping("/{id}")
     private ResponseEntity<Optional<Produto>> buscarPorId(@PathVariable Integer id){
         return ResponseEntity.ok(produtoService.buscarPorId(id));
+    }
+
+    @GetMapping("/{titulo}") // Rota que busca o produto pelo nome.
+    private ResponseEntity<List<Produto>> listarPorTitulo(@PathVariable String titulo){
+        return ResponseEntity.ok(produtoService.listarPorTitulo(titulo));
     }
 
     @PostMapping("/categoria")
