@@ -42,7 +42,7 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoService.buscarPorId(id));
     }
 
-    @GetMapping("/{titulo}") // Rota que busca o produto pelo nome.
+    @GetMapping("/by/{titulo}") // Rota que busca o produto pelo nome.
     private ResponseEntity<List<Produto>> listarPorTitulo(@PathVariable String titulo){
         return ResponseEntity.ok(produtoService.listarPorTitulo(titulo));
     }
